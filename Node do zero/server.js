@@ -13,11 +13,12 @@
 //USANDO FRAMEWORK FASTIFY
 
 import { fastify } from "fastify";
+import DataBaseMemory from "./database-memory.js";
 
 const server = fastify();
 
 server.get("/videos", () => {
-  return "GET";
+  return "GET - Atualizado";
 });
 server.post("/videos", () => {
   return "POST";
