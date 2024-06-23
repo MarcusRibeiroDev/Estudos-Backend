@@ -15,13 +15,28 @@
 import { fastify } from "fastify";
 import DataBaseMemory from "./database-memory.js";
 
+const databasememory = new DataBaseMemory();
+
 const server = fastify();
 
 server.get("/videos", () => {
-  return "GET - Atualizado";
+  const videos = databasememory.list();
+
+  console.log(videos);
+
+  return videos;
 });
-server.post("/videos", () => {
-  return "POST";
+
+server.post("/videos", (request, reply) => {
+  const { title, description, duration } = request.body;
+
+  databasememory.create({
+    title,
+    description,
+    duration,
+  });
+
+  return reply.status(201).send();
 });
 server.put("/videos/:id", () => {
   return "PUT";
