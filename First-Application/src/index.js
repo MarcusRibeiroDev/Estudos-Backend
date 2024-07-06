@@ -2,7 +2,7 @@ const express = require("express");
 const crypto = require("node:crypto");
 
 const app = express();
-app.use(express.json()); // Configura a API no padrão do express
+app.use(express.json()); // Configura a API no padrão do Express
 
 app.get("/health", (req, res) => {
   res.send("Minha API está On");
