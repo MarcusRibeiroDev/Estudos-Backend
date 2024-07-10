@@ -1,0 +1,9 @@
+Install
+
+npm install express -y
+
+npm install sequelize-cli -D
+
+npm install nodemon -D 
+
+npm install sequelize

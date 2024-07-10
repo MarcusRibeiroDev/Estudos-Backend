@@ -1,3 +1,5 @@
+const crypto = require("node:crypto");
+
 let users = []; // Simulação de DB
 
 function statusApi(req, res) {
