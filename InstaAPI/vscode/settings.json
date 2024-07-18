@@ -1,9 +1,0 @@
-{
-  "editor.fontSize": 20,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  },
-  "eslint.validate": ["javascript"],
-  "editor.fontFamily": "JetBrains Mono",
-  "editor.fontLigatures": true
-}
