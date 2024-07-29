@@ -8,4 +8,6 @@ const conection = mysql.createConnection({
   database: "db_team",
 });
 
+conection.connect();
+
 export default conection;
