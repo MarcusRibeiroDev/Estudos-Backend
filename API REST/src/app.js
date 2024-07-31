@@ -1,5 +1,4 @@
 import express from "express";
-import connection from "./app/database/conection.js";
 import TeamsControllers from "./app/controllers/TeamsControllers.js";
 
 // Colocando o express no padrão json

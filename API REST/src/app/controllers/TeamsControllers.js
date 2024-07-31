@@ -1,19 +1,16 @@
+import conection from "../database/conection.js";
+import TeamsRepositories from "../repositories/TeamsRepositories.js";
+
 class TeamsControllers {
-  index(req, res) {
-    let sql = "SELECT * FROM db_team.teams;";
-    connection.query(sql, (error, result) => {
-      if (error) {
-        res.status(404).json({ error: error });
-      } else {
-        res.status(200).json(result);
-      }
-    });
+  async index(req, res) {
+    const result = await TeamsRepositories.findAll();
+    res.json(result);
   }
 
   show(req, res) {
     let id = req.params.id;
     let sql = "SELECT * FROM db_team.teams WHERE id=?;";
-    connection.query(sql, id, (error, result) => {
+    conection.query(sql, id, (error, result) => {
       let response = result[0];
 
       if (error) {
@@ -27,7 +24,7 @@ class TeamsControllers {
   store(req, res) {
     let newTeam = req.body;
     let sql = "INSERT INTO db_team.teams SET ?;";
-    connection.query(sql, newTeam, (error, result) => {
+    conection.query(sql, newTeam, (error, result) => {
       if (error) {
         res.status(404).json({ error: error });
       } else {
@@ -39,7 +36,7 @@ class TeamsControllers {
   delete(req, res) {
     let id = req.params.id;
     let sql = "DELETE FROM db_team.teams WHERE id=?;";
-    connection.query(sql, id, (error, result) => {
+    conection.query(sql, id, (error, result) => {
       if (error) {
         res.status(404).json({ error: error });
       } else {
@@ -52,7 +49,7 @@ class TeamsControllers {
     let id = req.params.id;
     let newTeam = req.body;
     let sql = "UPDATE db_team.teams SET ? WHERE id=?;";
-    connection.query(sql, [newTeam, id], (error, result) => {
+    conection.query(sql, [newTeam, id], (error, result) => {
       if (error) {
         res.status(404).json({ error: error });
       } else {
