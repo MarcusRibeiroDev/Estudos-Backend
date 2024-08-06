@@ -10,4 +10,14 @@ const conection = mysql.createConnection({
 
 conection.connect();
 
+export const makeRequest = (sql, msg, values = "") => {
+  return new Promise((resolve, reject) => {
+    conection.query(sql, values, (error, result) => {
+      if (error) return reject(msg);
+      const res = JSON.parse(JSON.stringify(result));
+      return resolve(res);
+    });
+  });
+};
+
 export default conection;
