@@ -1,7 +1,7 @@
-import app from "./src/app.js";
+import app from "./app.js";
 //import conection from "./infra/conection.js";
 
-const PORT = 3000;
+const PORT = process.env.PORT ||  3000;
 
 // // Conectar DB
 // conection.connect((err) => {
